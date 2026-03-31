@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Step Pyramid of Djoser – Museum Exhibit</title>
+<title>Step Pyramid of Djoser – Interactive Museum</title>
 
 <style>
 body {
@@ -13,7 +13,6 @@ body {
   background: radial-gradient(circle at top, #3a2b1d, #120e0a);
 }
 
-/* texture overlay */
 body::before {
   content: "";
   position: fixed;
@@ -25,12 +24,18 @@ body::before {
 
 header {
   text-align: center;
-  padding: 45px 20px;
+  padding: 40px 20px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-h1 { font-size: 44px; margin-bottom: 5px; }
-.subtitle { opacity: 0.7; }
+h1 {
+  font-size: 44px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  opacity: 0.7;
+}
 
 .container {
   width: 92%;
@@ -38,6 +43,7 @@ h1 { font-size: 44px; margin-bottom: 5px; }
   margin: auto;
 }
 
+/* CARDS */
 .card {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.12);
@@ -45,11 +51,35 @@ h1 { font-size: 44px; margin-bottom: 5px; }
   margin: 22px 0;
   border-radius: 14px;
   backdrop-filter: blur(8px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  border-color: #e7c78a;
 }
 
 .card h2 {
   text-align: center;
   color: #e7c78a;
+}
+
+/* FACT BUTTONS */
+.fact-btn {
+  display: inline-block;
+  margin: 8px;
+  padding: 10px 14px;
+  border: 1px solid #e7c78a;
+  background: transparent;
+  color: #f5e7d3;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fact-btn:hover {
+  background: #e7c78a;
+  color: #120e0a;
 }
 
 /* PYRAMID */
@@ -69,8 +99,8 @@ h1 { font-size: 44px; margin-bottom: 5px; }
 }
 
 .step:hover {
-  transform: scale(1.06);
-  filter: brightness(1.25);
+  transform: scale(1.08);
+  filter: brightness(1.3);
 }
 
 .s1 { width: 400px; }
@@ -80,13 +110,13 @@ h1 { font-size: 44px; margin-bottom: 5px; }
 .s5 { width: 190px; }
 .s6 { width: 140px; }
 
-/* popup */
+/* POPUP */
 .popup {
   position: fixed;
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.92);
   border: 1px solid #e7c78a;
   padding: 14px 18px;
   border-radius: 12px;
@@ -95,15 +125,9 @@ h1 { font-size: 44px; margin-bottom: 5px; }
   text-align: center;
 }
 
-/* QR */
-.qr {
-  text-align: center;
-}
-
-.qr img {
-  margin-top: 10px;
-  border: 6px solid #e7c78a;
-  border-radius: 12px;
+/* TIMELINE */
+input[type=range] {
+  width: 100%;
 }
 </style>
 </head>
@@ -111,63 +135,64 @@ h1 { font-size: 44px; margin-bottom: 5px; }
 <body>
 
 <header>
-<h1>🏺 STEP PYRAMID UPDATED TEST</h1>
-<p class="subtitle">Ancient Egyptian Museum Exhibit</p>
+<h1>🏺 STEP PYRAMID OF DJOSER</h1>
+<p class="subtitle">Interactive Ancient Egyptian Museum Experience</p>
 </header>
 
 <div class="container">
 
+<!-- FACTS -->
+<div class="card">
+<h2>🔎 Explore Key Facts</h2>
+
+<button class="fact-btn" onclick="showInfo('Imhotep was later worshipped as a god of wisdom and architecture.')">Imhotep</button>
+<button class="fact-btn" onclick="showInfo('This is the oldest large stone building in the world.')">Oldest Structure</button>
+<button class="fact-btn" onclick="showInfo('Built in Saqqara during the 3rd Dynasty.')">Location</button>
+<button class="fact-btn" onclick="showInfo('Originally covered in smooth white limestone.')">Outer Surface</button>
+</div>
+
+<!-- HISTORY -->
 <div class="card">
 <h2>📜 History</h2>
 <p>
-The Step Pyramid of Djoser was built around 2670 BCE in Saqqara, Egypt, during the Third Dynasty.
-It was created for Pharaoh Djoser and designed by Imhotep, the first known architect in history.
-</p>
-<p>
-It began as a mastaba tomb and was transformed into a six-step stone pyramid, making it the first large-scale stone monument ever built.
-This design influenced all later pyramids in Egypt.
+The Step Pyramid of Djoser was built around 2670 BCE in Egypt’s Old Kingdom.
+It was designed by Imhotep for Pharaoh Djoser and became the first large-scale stone monument in history.
 </p>
 </div>
 
+<!-- TIMELINE -->
+<div class="card">
+<h2>⏳ Construction Timeline</h2>
+<input type="range" min="1" max="6" value="1" oninput="timeline(this.value)">
+<p id="timelineText">Stage 1: Mastaba foundation built.</p>
+</div>
+
+<!-- ✅ ONLY ONE INTERACTIVE PYRAMID -->
 <div class="card">
 <h2>🏗️ Interactive Pyramid</h2>
 <p>Click each layer to explore its meaning.</p>
-</div>
-  <div class="card">
-<h2>🏗️ Interactive Pyramid</h2>
-<p>Click each layer to explore its meaning.</p>
-</div>
-
-<div class="card">
-<h2>📐 Measurements</h2>
-
-<p><b>Scale:</b> 1 cm = 5 m</p>
-
-<ul>
-<li>24.3 m → 4.86 cm</li>
-<li>20.5 m → 4.1 cm</li>
-<li>17 m → 3.4 cm</li>
-<li>13.5 m → 2.7 cm</li>
-<li>10 m → 2 cm</li>
-<li>6.5 m → 1.3 cm</li>
-<li>3 m → 0.6 cm</li>
-<li><b>Main base:</b> 120 m × 120 m → 24 cm × 24 cm</li>
-</ul>
-
-</div>
 
 <div class="pyramid">
-<div class="step s6" onclick="showInfo('Top: burial chamber representing the king’s journey to the afterlife.')"></div>
-<div class="step s5" onclick="showInfo('Upper levels: symbolic transition toward divinity.')"></div>
-<div class="step s4" onclick="showInfo('Middle layers: expansion from mastaba to pyramid form.')"></div>
-<div class="step s3" onclick="showInfo('Limestone structure shows advanced engineering.')"></div>
-<div class="step s2" onclick="showInfo('Designed by Imhotep, pioneer of ancient architecture.')"></div>
-<div class="step s1" onclick="showInfo('Base: original mastaba foundation.')"></div>
+<div class="step s6" onclick="showInfo('Top: journey to afterlife')"></div>
+<div class="step s5" onclick="showInfo('Divine transformation')"></div>
+<div class="step s4" onclick="showInfo('Expansion stage')"></div>
+<div class="step s3" onclick="showInfo('Engineering breakthrough')"></div>
+<div class="step s2" onclick="showInfo('Imhotep’s innovation')"></div>
+<div class="step s1" onclick="showInfo('Original mastaba base')"></div>
 </div>
 
+</div>
+
+<!-- DID YOU KNOW -->
+<div class="card">
+<h2>💡 Did You Know?</h2>
+<p id="factBox">Click to generate a fact.</p>
+<button class="fact-btn" onclick="randomFact()">Random Fact</button>
+</div>
 
 </div>
 
+<!-- POPUP -->
 <div class="popup" id="popup"></div>
 
 <script>
@@ -178,10 +203,29 @@ function showInfo(text) {
   setTimeout(() => popup.style.display = "none", 3000);
 }
 
-/* QR auto link */
-document.getElementById("qr").src =
-"https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=" +
-encodeURIComponent(window.location.href);
+function timeline(value) {
+  const stages = [
+    "Stage 1: Mastaba foundation built.",
+    "Stage 2: First expansion begins.",
+    "Stage 3: Structure rises upward.",
+    "Stage 4: Pyramid shape forms.",
+    "Stage 5: Six-step design completed.",
+    "Stage 6: Final monument finished."
+  ];
+  document.getElementById("timelineText").innerText = stages[value - 1];
+}
+
+function randomFact() {
+  const facts = [
+    "The Step Pyramid influenced all later pyramids.",
+    "It is over 4,600 years old.",
+    "Imhotep was the first named architect in history.",
+    "It was part of a massive funerary complex.",
+    "It was the first large limestone structure ever built."
+  ];
+  document.getElementById("factBox").innerText =
+    facts[Math.floor(Math.random() * facts.length)];
+}
 </script>
 
 </body>
