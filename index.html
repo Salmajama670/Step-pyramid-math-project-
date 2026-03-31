@@ -13,7 +13,6 @@ body{
   color:#f5e7d3;
 }
 
-/* sand texture */
 body::before{
   content:"";
   position:fixed;
@@ -29,17 +28,10 @@ header{
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-h1{
-  font-size:48px;
-  margin:0;
-}
+h1{ font-size:48px; margin:0; }
 
-.subtitle{
-  opacity:0.7;
-  margin-top:10px;
-}
+.subtitle{ opacity:0.7; margin-top:10px; }
 
-/* layout */
 .container{
   width:92%;
   max-width:1050px;
@@ -47,7 +39,6 @@ h1{
   padding:30px 0;
 }
 
-/* cards */
 .card{
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(255,255,255,0.12);
@@ -67,7 +58,6 @@ h1{
   color:#e7c78a;
 }
 
-/* buttons */
 .fact-btn{
   margin:6px;
   padding:10px 14px;
@@ -76,27 +66,24 @@ h1{
   color:#f5e7d3;
   border-radius:10px;
   cursor:pointer;
-  transition:0.2s;
 }
 
 .fact-btn:hover{
   background:#e7c78a;
   color:#120e0a;
-  box-shadow:0 0 12px rgba(231,199,138,0.6);
 }
 
-/* measurements */
 .measure-box{
   border-left:4px solid #e7c78a;
   padding-left:16px;
   line-height:1.9;
 }
 
-/* PYRAMID FIXED */
 .pyramid{
   display:flex;
   flex-direction:column;
   align-items:center;
+  justify-content:center;
   margin:50px 0;
   gap:6px;
 }
@@ -106,25 +93,17 @@ h1{
   background:linear-gradient(145deg,#d8bc8f,#8a6a45);
   border:1px solid #3a2a1a;
   cursor:pointer;
-  transition:0.3s ease;
-  box-shadow:0 6px 12px rgba(0,0,0,0.35);
 }
 
-.step:hover{
-  transform:scale(1.03);
-}
-
-/* correct pyramid widths (TOP = smallest, BOTTOM = biggest) */
-.s8{width:60px;}
-.s7{width:120px;}
-.s6{width:170px;}
-.s5{width:220px;}
-.s4{width:280px;}
-.s3{width:340px;}
-.s2{width:410px;}
 .s1{width:480px;}
+.s2{width:410px;}
+.s3{width:340px;}
+.s4{width:280px;}
+.s5{width:220px;}
+.s6{width:170px;}
+.s7{width:120px;}
+.s8{width:60px;}
 
-/* popup */
 .popup{
   position:fixed;
   bottom:25px;
@@ -135,9 +114,6 @@ h1{
   padding:14px 18px;
   border-radius:12px;
   display:none;
-  max-width:80%;
-  text-align:center;
-  font-size:15px;
 }
 </style>
 </head>
@@ -151,26 +127,64 @@ h1{
 
 <div class="container">
 
+<!-- ✅ FULL HISTORY -->
 <div class="card">
 <h2>📜 History</h2>
-<p>Built around 2670 BCE, this is the first large stone monument in history. Designed by Imhotep for Pharaoh Djoser.</p>
+<p>
+Built around <b>2670 BCE</b>, the Step Pyramid of Djoser is considered the first large-scale stone structure in human history.
+It marks a major turning point in ancient Egyptian architecture, when builders transitioned from simple mudbrick tombs
+to massive stone monuments designed to last forever.
+</p>
+<p>
+The pyramid was constructed for Pharaoh Djoser of the Third Dynasty and symbolized his journey to the afterlife,
+where he would live eternally among the gods.
+</p>
 </div>
 
+<!-- ✅ FULL IMHOTEP -->
 <div class="card">
 <h2>🧠 Imhotep</h2>
-<p>First known architect in history and later worshipped as a god of wisdom and medicine.</p>
+<p>
+Imhotep was the brilliant architect, engineer, priest, and physician who designed the Step Pyramid.
+He is the first known architect in recorded history whose name has survived.
+</p>
+<p>
+His innovative idea was to stack several mastabas (flat tomb structures) on top of each other,
+creating the first step pyramid ever built.
+He was later worshipped as a god of wisdom, medicine, and knowledge.
+</p>
 </div>
 
+<!-- ✅ FULL COMPLEX -->
 <div class="card">
 <h2>🏛️ Funerary Complex</h2>
-<p>Included temples, courtyards, and ritual spaces for the afterlife journey.</p>
+<p>
+The pyramid was not a standalone structure, but part of a vast funerary complex at Saqqara.
+This complex included temples, courtyards, ceremonial buildings, and ritual spaces used during the king’s burial
+and in ongoing ceremonies after his death.
+</p>
+<p>
+These structures symbolized the king’s power and ensured his successful journey into the afterlife.
+</p>
 </div>
 
+<!-- ✅ MEASUREMENTS (UNCHANGED CORRECT) -->
 <div class="card">
 <h2>📐 Measurements</h2>
+
 <div class="measure-box">
 <p><b>Scale:</b> 1 cm = 5 m</p>
-<p><b>Height:</b> 24.3 m → 4.86 cm</p>
+
+<p><b>Step Heights:</b><br>
+Top (Layer 6): 3 m → 0.6 cm<br>
+Layer 5: 6.5 m → 1.3 cm<br>
+Layer 4: 10 m → 2 cm<br>
+Layer 3: 13.5 m → 2.7 cm<br>
+Layer 2: 17 m → 3.4 cm<br>
+Layer 1 (Base): 20.5 m → 4.1 cm
+</p>
+
+<p><b>Total Height:</b> 24.3 m → 4.86 cm</p>
 <p><b>Base:</b> 120 m × 120 m → 24 cm × 24 cm</p>
 </div>
 </div>
@@ -185,17 +199,16 @@ h1{
 
 <div class="card">
 <h2>🏗️ Interactive Pyramid</h2>
-<p>Click each layer to explore meaning.</p>
 
 <div class="pyramid">
-<div class="step s8" onclick="showInfo('Capstone: divine connection')"></div>
-<div class="step s7" onclick="showInfo('Top layer: union with gods')"></div>
+<div class="step s8" onclick="showInfo('Capstone: symbolic peak of divine connection')"></div>
+<div class="step s7" onclick="showInfo('Top: union with the gods')"></div>
 <div class="step s6" onclick="showInfo('Spiritual transformation')"></div>
 <div class="step s5" onclick="showInfo('Expansion of royal power')"></div>
 <div class="step s4" onclick="showInfo('Engineering breakthrough')"></div>
 <div class="step s3" onclick="showInfo('Imhotep’s innovation')"></div>
-<div class="step s2" onclick="showInfo('Early mastaba development')"></div>
-<div class="step s1" onclick="showInfo('Foundation base')"></div>
+<div class="step s2" onclick="showInfo('Original mastaba development phase')"></div>
+<div class="step s1" onclick="showInfo('Foundation base of the structure')"></div>
 </div>
 
 </div>
@@ -211,9 +224,9 @@ function showInfo(text){
   popup.style.display = "block";
 
   clearTimeout(window.popupTimer);
-  window.popupTimer = setTimeout(() => {
-    popup.style.display = "none";
-  }, 3000);
+  window.popupTimer = setTimeout(()=>{
+    popup.style.display="none";
+  },6000);
 }
 </script>
 
