@@ -3,23 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Step Pyramid of Djoser Project</title>
+<title>Step Pyramid of Djoser</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(#f4e7c1, #e6d2a2);
-  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(#f6e7c1, #e2c79a);
   color: #3b2a1a;
+  text-align: center;
+}
+
+header {
+  padding: 25px;
 }
 
 h1 {
-  margin-top: 20px;
+  margin: 10px 0;
+  font-size: 32px;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  background: rgba(255,255,255,0.75);
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .pyramid {
-  margin: 50px auto;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +50,6 @@ h1 {
   border: 2px solid #6b4b2a;
 }
 
-/* Pyramid shape */
 .s1 { width: 340px; }
 .s2 { width: 300px; }
 .s3 { width: 260px; }
@@ -40,22 +58,44 @@ h1 {
 .s6 { width: 140px; }
 .s7 { width: 100px; }
 
-.box {
-  background: rgba(255,255,255,0.6);
-  padding: 15px;
-  margin: 20px auto;
-  width: 80%;
+footer {
+  margin: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+img {
+  margin-top: 10px;
   border-radius: 10px;
 }
 </style>
-
 </head>
 
 <body>
 
-<h1>🏺 Step Pyramid of Djoser Project</h1>
+<header>
+<h1>🏺 Step Pyramid of Djoser</h1>
+<p>The world’s first monumental stone building in Ancient Egypt</p>
+</header>
 
-<p>Ancient Egyptian themed math project with scaled pyramid model and measurements.</p>
+<div class="container">
+
+<div class="card">
+<h2>📜 History</h2>
+<p>
+The Step Pyramid of Djoser, built around 2670 BCE in Saqqara, Egypt,
+was designed by the architect Imhotep. It is considered the first pyramid ever built
+and marked a major innovation in ancient architecture.
+</p>
+</div>
+
+<div class="card">
+<h2>🏗️ Structure</h2>
+<p>
+The pyramid was built in six stepped layers using limestone blocks.
+Each level was stacked smaller than the one below it, creating the iconic step design.
+</p>
+</div>
 
 <div class="pyramid">
   <div class="step s7"></div>
@@ -67,24 +107,25 @@ h1 {
   <div class="step s1"></div>
 </div>
 
-<div class="box">
-  <h2>📐 Measurements</h2>
-  <p>Scale: 1 cm = 5 meters</p>
-  <p>Base: 120 m → 24 cm</p>
-  <p>Each layer decreases evenly to form a stepped structure</p>
+<div class="card">
+<h2>📐 Math Model</h2>
+<p>Scale used: 1 cm = 5 meters</p>
+<p>Base: 120 m → 24 cm</p>
+<p>Each layer decreases evenly to maintain symmetry</p>
 </div>
 
-<div class="box">
-  <h2>🏺 About</h2>
-  <p>This model is inspired by the Step Pyramid of Djoser in Ancient Egypt.</p>
+<div class="card">
+<h2>🔗 QR Code</h2>
+<p>Replace link below with your GitHub Pages URL</p>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=YOUR_LINK_HERE">
 </div>
 
-<div class="box">
-  <h2>🔗 QR Code</h2>
-  <p>Replace YOUR_LINK_HERE with your GitHub Pages link</p>
-
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=YOUR_LINK_HERE">
 </div>
+
+<footer>
+Made for school project — Ancient Egypt Math Model
+</footer>
 
 </body>
 </html>
