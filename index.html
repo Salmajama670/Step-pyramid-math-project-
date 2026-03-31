@@ -92,7 +92,7 @@ h1{
   line-height:1.9;
 }
 
-/* PYRAMID (SAFE VERSION) */
+/* PYRAMID FIXED (NO FLIP, PROPER TOP-TO-BASE VISUAL) */
 .pyramid{
   display:flex;
   flex-direction:column;
@@ -101,12 +101,15 @@ h1{
   gap:6px;
 }
 
+/* IMPORTANT FIX:
+We keep TOP visually at top, BASE at bottom (correct pyramid) */
 .step{
   height:52px;
   background:linear-gradient(145deg,#d8bc8f,#8a6a45);
   border:1px solid #3a2a1a;
   cursor:pointer;
   transition:0.3s ease;
+  box-shadow:0 6px 12px rgba(0,0,0,0.35);
 }
 
 .step:hover{
@@ -114,17 +117,17 @@ h1{
   filter:brightness(1.3);
 }
 
-/* base → top (correct logical order) */
-.s1{width:480px;}
-.s2{width:410px;}
-.s3{width:340px;}
-.s4{width:280px;}
-.s5{width:220px;}
-.s6{width:170px;}
-.s7{width:120px;}
+/* TOP → BOTTOM correct pyramid shape */
 .s8{width:60px;}
+.s7{width:120px;}
+.s6{width:170px;}
+.s5{width:220px;}
+.s4{width:280px;}
+.s3{width:340px;}
+.s2{width:410px;}
+.s1{width:480px;}
 
-/* POPUP */
+/* POPUP FIX */
 .popup{
   position:fixed;
   bottom:25px;
@@ -153,24 +156,17 @@ h1{
 
 <div class="card">
 <h2>📜 History</h2>
-<p>
-Built around 2670 BCE, this is the first large stone monument in history.
-Designed by Imhotep for Pharaoh Djoser.
-</p>
+<p>Built around 2670 BCE, this is the first large stone monument in history. Designed by Imhotep for Pharaoh Djoser.</p>
 </div>
 
 <div class="card">
 <h2>🧠 Imhotep</h2>
-<p>
-First known architect in history and later worshipped as a god of wisdom and medicine.
-</p>
+<p>First known architect in history and later worshipped as a god of wisdom and medicine.</p>
 </div>
 
 <div class="card">
 <h2>🏛️ Funerary Complex</h2>
-<p>
-Included temples, courtyards, and ritual spaces for the afterlife journey.
-</p>
+<p>Included temples, courtyards, and ritual spaces for the afterlife journey.</p>
 </div>
 
 <div class="card">
@@ -196,14 +192,14 @@ Included temples, courtyards, and ritual spaces for the afterlife journey.
 <p>Click each layer to explore meaning.</p>
 
 <div class="pyramid">
-<div class="step s1" onclick="showInfo('Foundation base of the structure')"></div>
-<div class="step s2" onclick="showInfo('Original mastaba development phase')"></div>
-<div class="step s3" onclick="showInfo('Imhotep’s innovation')"></div>
-<div class="step s4" onclick="showInfo('Engineering breakthrough')"></div>
-<div class="step s5" onclick="showInfo('Expansion of royal power')"></div>
-<div class="step s6" onclick="showInfo('Spiritual transformation')"></div>
-<div class="step s7" onclick="showInfo('Top: union with the gods')"></div>
 <div class="step s8" onclick="showInfo('Capstone: symbolic peak of divine connection')"></div>
+<div class="step s7" onclick="showInfo('Top: union with the gods')"></div>
+<div class="step s6" onclick="showInfo('Spiritual transformation')"></div>
+<div class="step s5" onclick="showInfo('Expansion of royal power')"></div>
+<div class="step s4" onclick="showInfo('Engineering breakthrough')"></div>
+<div class="step s3" onclick="showInfo('Imhotep’s innovation')"></div>
+<div class="step s2" onclick="showInfo('Original mastaba development phase')"></div>
+<div class="step s1" onclick="showInfo('Foundation base of the structure')"></div>
 </div>
 
 </div>
@@ -214,10 +210,15 @@ Included temples, courtyards, and ritual spaces for the afterlife journey.
 
 <script>
 function showInfo(text){
-  const popup=document.getElementById("popup");
-  popup.innerText=text;
-  popup.style.display="block";
-  setTimeout(()=>popup.style.display="none",3000);
+  const popup = document.getElementById("popup");
+
+  popup.innerText = text;
+  popup.style.display = "block";
+
+  clearTimeout(window.popupTimer);
+  window.popupTimer = setTimeout(() => {
+    popup.style.display = "none";
+  }, 3000);
 }
 </script>
 
