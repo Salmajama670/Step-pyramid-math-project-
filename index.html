@@ -67,7 +67,7 @@ h1{
   color:#e7c78a;
 }
 
-/* FACT BUTTONS */
+/* buttons */
 .fact-btn{
   margin:6px;
   padding:10px 14px;
@@ -85,14 +85,14 @@ h1{
   box-shadow:0 0 12px rgba(231,199,138,0.6);
 }
 
-/* MEASUREMENTS */
+/* measurements */
 .measure-box{
   border-left:4px solid #e7c78a;
   padding-left:16px;
   line-height:1.9;
 }
 
-/* PYRAMID FIXED (NO FLIP, PROPER TOP-TO-BASE VISUAL) */
+/* PYRAMID FIXED */
 .pyramid{
   display:flex;
   flex-direction:column;
@@ -101,8 +101,6 @@ h1{
   gap:6px;
 }
 
-/* IMPORTANT FIX:
-We keep TOP visually at top, BASE at bottom (correct pyramid) */
 .step{
   height:52px;
   background:linear-gradient(145deg,#d8bc8f,#8a6a45);
@@ -113,11 +111,10 @@ We keep TOP visually at top, BASE at bottom (correct pyramid) */
 }
 
 .step:hover{
-  transform:scale(1.08);
-  filter:brightness(1.3);
+  transform:scale(1.03);
 }
 
-/* TOP → BOTTOM correct pyramid shape */
+/* correct pyramid widths (TOP = smallest, BOTTOM = biggest) */
 .s8{width:60px;}
 .s7{width:120px;}
 .s6{width:170px;}
@@ -127,7 +124,7 @@ We keep TOP visually at top, BASE at bottom (correct pyramid) */
 .s2{width:410px;}
 .s1{width:480px;}
 
-/* POPUP FIX */
+/* popup */
 .popup{
   position:fixed;
   bottom:25px;
@@ -173,8 +170,7 @@ We keep TOP visually at top, BASE at bottom (correct pyramid) */
 <h2>📐 Measurements</h2>
 <div class="measure-box">
 <p><b>Scale:</b> 1 cm = 5 m</p>
-<p>Heights: 3 m → 0.6 cm up to 20.5 m → 4.1 cm</p>
-<p><b>Total Height:</b> 24.3 m → 4.86 cm</p>
+<p><b>Height:</b> 24.3 m → 4.86 cm</p>
 <p><b>Base:</b> 120 m × 120 m → 24 cm × 24 cm</p>
 </div>
 </div>
@@ -192,14 +188,14 @@ We keep TOP visually at top, BASE at bottom (correct pyramid) */
 <p>Click each layer to explore meaning.</p>
 
 <div class="pyramid">
-<div class="step s8" onclick="showInfo('Capstone: symbolic peak of divine connection')"></div>
-<div class="step s7" onclick="showInfo('Top: union with the gods')"></div>
+<div class="step s8" onclick="showInfo('Capstone: divine connection')"></div>
+<div class="step s7" onclick="showInfo('Top layer: union with gods')"></div>
 <div class="step s6" onclick="showInfo('Spiritual transformation')"></div>
 <div class="step s5" onclick="showInfo('Expansion of royal power')"></div>
 <div class="step s4" onclick="showInfo('Engineering breakthrough')"></div>
 <div class="step s3" onclick="showInfo('Imhotep’s innovation')"></div>
-<div class="step s2" onclick="showInfo('Original mastaba development phase')"></div>
-<div class="step s1" onclick="showInfo('Foundation base of the structure')"></div>
+<div class="step s2" onclick="showInfo('Early mastaba development')"></div>
+<div class="step s1" onclick="showInfo('Foundation base')"></div>
 </div>
 
 </div>
@@ -211,7 +207,6 @@ We keep TOP visually at top, BASE at bottom (correct pyramid) */
 <script>
 function showInfo(text){
   const popup = document.getElementById("popup");
-
   popup.innerText = text;
   popup.style.display = "block";
 
