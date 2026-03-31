@@ -3,76 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Step Pyramid of Djoser</title>
+<title>Step Pyramid of Djoser – Interactive Museum</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(#f7e7c6, #e2c08d);
-  color: #3b2a1a;
-  text-align: center;
+  font-family: Georgia, serif;
+  color: #f5e7d3;
+  background: radial-gradient(circle at top, #3a2b1d, #120e0a);
 }
 
+/* sand texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/sand.png');
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+/* HEADER */
 header {
-  padding: 30px 20px;
+  text-align: center;
+  padding: 50px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-h1 {
-  font-size: 36px;
-  margin-bottom: 5px;
-}
+h1 { font-size: 42px; }
+.subtitle { opacity: 0.7; font-style: italic; }
 
-.subtitle {
-  font-size: 16px;
-  opacity: 0.8;
-}
-
+/* SECTIONS */
 .container {
-  width: 90%;
-  max-width: 900px;
+  width: 92%;
+  max-width: 1000px;
   margin: auto;
 }
 
+.section {
+  padding: 40px 0;
+}
+
 .card {
-  background: rgba(255,255,255,0.85);
-  margin: 20px 0;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
   padding: 22px;
+  margin: 20px 0;
   border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-  text-align: left;
+  backdrop-filter: blur(8px);
 }
 
 .card h2 {
   text-align: center;
+  color: #e7c78a;
 }
 
+/* BUTTON */
+button {
+  background: #e7c78a;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #fff0c2;
+}
+
+/* PYRAMID ANIMATION */
 .pyramid {
-  margin: 40px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 60px 0;
+  animation: rise 2s ease-out;
+}
+
+@keyframes rise {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .step {
-  height: 45px;
-  background: linear-gradient(145deg, #d2b48c, #a67c52);
-  border: 2px solid #6b4b2a;
+  height: 52px;
+  background: linear-gradient(145deg, #d8bc8f, #8a6a45);
+  border: 1px solid #3a2a1a;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* pyramid structure */
-.s1 { width: 340px; }
-.s2 { width: 300px; }
-.s3 { width: 260px; }
-.s4 { width: 220px; }
-.s5 { width: 180px; }
-.s6 { width: 140px; }
-.s7 { width: 100px; }
+.step:hover {
+  transform: scale(1.05);
+  filter: brightness(1.3);
+}
 
-footer {
-  margin: 30px;
-  font-size: 13px;
-  opacity: 0.7;
+.s1 { width: 380px; }
+.s2 { width: 330px; }
+.s3 { width: 280px; }
+.s4 { width: 230px; }
+.s5 { width: 180px; }
+.s6 { width: 130px; }
+
+/* TIMELINE */
+.timeline {
+  border-left: 2px solid #e7c78a;
+  margin: 20px;
+  padding-left: 20px;
+}
+
+.event {
+  margin: 15px 0;
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.9);
+  border: 1px solid #e7c78a;
+  padding: 14px;
+  border-radius: 12px;
+  display: none;
+  max-width: 80%;
+}
+
+/* QR */
+.qr {
+  text-align: center;
+}
+
+.qr img {
+  border: 6px solid #e7c78a;
+  border-radius: 12px;
+  margin-top: 10px;
 }
 </style>
 </head>
@@ -81,70 +148,88 @@ footer {
 
 <header>
 <h1>🏺 Step Pyramid of Djoser</h1>
-<p class="subtitle">The first monumental stone structure in Ancient Egypt</p>
+<p class="subtitle">Interactive Ancient Egyptian Museum Experience</p>
+<button onclick="playGuide()">▶ Audio Guide</button>
 </header>
 
 <div class="container">
 
+<!-- HISTORY -->
+<div class="section">
 <div class="card">
-<h2>📜 History</h2>
+<h2>📜 Museum Exhibit: History</h2>
 <p>
-The Step Pyramid of Djoser was built around 2670 BCE in Saqqara, Egypt,
-during the Third Dynasty. It was constructed for Pharaoh Djoser and designed
-by his vizier and architect Imhotep.
+The Step Pyramid of Djoser was built around 2670 BCE in Saqqara during Egypt’s Third Dynasty.
+It was designed by Imhotep, the world’s first recorded architect, for Pharaoh Djoser.
 </p>
 <p>
-Before this pyramid, Egyptian rulers were buried in flat-roofed tombs called mastabas.
-Imhotep revolutionized architecture by stacking mastabas on top of each other,
-creating the first large stone structure in history.
-</p>
-<p>
-This innovation became the foundation of all later pyramid construction in Egypt,
-including the famous pyramids of Giza.
+It began as a mastaba tomb but evolved into a six-layer stepped structure — the first large-scale stone monument ever built.
 </p>
 </div>
+</div>
 
+<!-- PYRAMID -->
+<div class="section">
 <div class="card">
-<h2>🏗️ Structure</h2>
-<p>
-The pyramid originally began as a single mastaba but was expanded into six stepped layers.
-Each layer is smaller than the one below it, creating a stable, symmetrical structure.
-</p>
-<p>
-It is built from limestone blocks and stands about 60 meters tall.
-It is part of a larger funerary complex with courtyards and temples.
-</p>
+<h2>🏗️ Interactive Pyramid</h2>
+<p>Click each layer to explore its meaning.</p>
 </div>
 
 <div class="pyramid">
-  <div class="step s7"></div>
-  <div class="step s6"></div>
-  <div class="step s5"></div>
-  <div class="step s4"></div>
-  <div class="step s3"></div>
-  <div class="step s2"></div>
-  <div class="step s1"></div>
+<div class="step s6" onclick="showInfo('Top chamber: symbolic burial space for the king’s soul.')"></div>
+<div class="step s5" onclick="showInfo('Upper levels: journey toward divine transformation.')"></div>
+<div class="step s4" onclick="showInfo('Middle expansion: transition from mastaba to pyramid.')"></div>
+<div class="step s3" onclick="showInfo('Limestone structure shows advanced engineering skill.')"></div>
+<div class="step s2" onclick="showInfo('Designed by Imhotep, pioneer of architecture.')"></div>
+<div class="step s1" onclick="showInfo('Base mastaba: original tomb structure.')"></div>
+</div>
 </div>
 
+<!-- TIMELINE -->
+<div class="section">
 <div class="card">
-<h2>📐 Math Model</h2>
-<p>Scale used: 1 cm = 5 meters</p>
-<p>Base: 120 m → 24 cm</p>
-<p>Each step decreases evenly to maintain symmetry</p>
+<h2>⏳ Timeline of Construction</h2>
+<div class="timeline">
+<div class="event">📍 2670 BCE – Construction begins</div>
+<div class="event">📍 Mastaba base built</div>
+<div class="event">📍 Expansion into 6 steps</div>
+<div class="event">📍 Limestone casing added</div>
+<div class="event">📍 Completion of funerary complex</div>
+</div>
+</div>
 </div>
 
-<div class="card">
+<!-- QR -->
+<div class="section">
+<div class="card qr">
 <h2>🔗 QR Code</h2>
-<p>Replace YOUR_LINK_HERE with your GitHub Pages link</p>
-
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=YOUR_LINK_HERE">
+<p>Automatically links to this live website</p>
+<img id="qr">
+</div>
 </div>
 
 </div>
 
-<footer>
-Ancient Egypt School Project — Step Pyramid of Djoser
-</footer>
+<div class="popup" id="popup"></div>
+
+<script>
+function showInfo(text) {
+  const popup = document.getElementById("popup");
+  popup.innerText = text;
+  popup.style.display = "block";
+  setTimeout(() => popup.style.display = "none", 3000);
+}
+
+/* AUDIO GUIDE */
+function playGuide() {
+  alert("Audio Guide: The Step Pyramid of Djoser is the first monumental stone structure in history, built for Pharaoh Djoser by Imhotep in Saqqara...");
+}
+
+/* QR AUTO */
+document.getElementById("qr").src =
+"https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=" +
+encodeURIComponent(window.location.href);
+</script>
 
 </body>
 </html>
