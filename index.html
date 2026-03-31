@@ -15,26 +15,36 @@ body {
 }
 
 header {
-  padding: 25px;
+  padding: 30px 20px;
 }
 
 h1 {
-  margin: 10px 0;
-  font-size: 32px;
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 16px;
+  opacity: 0.8;
 }
 
 .container {
   width: 90%;
-  max-width: 900px;
+  max-width: 950px;
   margin: auto;
 }
 
 .card {
-  background: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.8);
   margin: 20px 0;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
+.card h2 {
+  text-align: center;
 }
 
 .pyramid {
@@ -60,13 +70,8 @@ h1 {
 
 footer {
   margin: 30px;
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-img {
-  margin-top: 10px;
-  border-radius: 10px;
+  font-size: 13px;
+  opacity: 0.7;
 }
 </style>
 </head>
@@ -75,25 +80,37 @@ img {
 
 <header>
 <h1>🏺 Step Pyramid of Djoser</h1>
-<p>The world’s first monumental stone building in Ancient Egypt</p>
+<p class="subtitle">The world’s first monumental stone structure, built in Ancient Egypt</p>
 </header>
 
 <div class="container">
 
 <div class="card">
-<h2>📜 History</h2>
+<h2>📜 The Story</h2>
 <p>
-The Step Pyramid of Djoser, built around 2670 BCE in Saqqara, Egypt,
-was designed by the architect Imhotep. It is considered the first pyramid ever built
-and marked a major innovation in ancient architecture.
+The Step Pyramid of Djoser was built around 2670 BCE in Saqqara during Egypt’s Third Dynasty.
+It was created for Pharaoh Djoser and designed by his brilliant vizier and architect, Imhotep.
+</p>
+<p>
+Before this pyramid, Egyptian kings were buried in simple flat tombs called mastabas.
+Imhotep revolutionized architecture by stacking mastabas on top of each other,
+creating the first large stone structure in history.
+</p>
+<p>
+This innovation marked the beginning of pyramid construction in Egypt,
+influencing all later pyramids, including the Great Pyramids of Giza.
 </p>
 </div>
 
 <div class="card">
-<h2>🏗️ Structure</h2>
+<h2>🏗️ Construction</h2>
 <p>
-The pyramid was built in six stepped layers using limestone blocks.
-Each level was stacked smaller than the one below it, creating the iconic step design.
+The pyramid was built using limestone blocks and originally began as a single mastaba.
+Over time, it was expanded into six stepped layers, each smaller than the one below it.
+</p>
+<p>
+It stands about 60 meters tall and is part of a large funerary complex including temples,
+courtyards, and ceremonial spaces.
 </p>
 </div>
 
@@ -109,22 +126,22 @@ Each level was stacked smaller than the one below it, creating the iconic step d
 
 <div class="card">
 <h2>📐 Math Model</h2>
-<p>Scale used: 1 cm = 5 meters</p>
-<p>Base: 120 m → 24 cm</p>
-<p>Each layer decreases evenly to maintain symmetry</p>
+<p>Scale: 1 cm = 5 meters</p>
+<p>Base length: 120 meters → 24 cm</p>
+<p>Each level reduces evenly to maintain symmetry and structure</p>
 </div>
 
 <div class="card">
 <h2>🔗 QR Code</h2>
-<p>Replace link below with your GitHub Pages URL</p>
+<p>Replace “YOUR_LINK_HERE” with your GitHub Pages link</p>
 
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=YOUR_LINK_HERE">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=YOUR_LINK_HERE">
 </div>
 
 </div>
 
 <footer>
-Made for school project — Ancient Egypt Math Model
+Ancient Egypt Math Project — Step Pyramid of Djoser
 </footer>
 
 </body>
