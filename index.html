@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step Pyramid of Djoser – Interactive Museum</title>
 
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  color: #f5e7d3;
+  background: radial-gradient(circle at top, #3a2b1d, #120e0a);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/sand.png');
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+h1 { font-size: 44px; margin-bottom: 5px; }
+.subtitle { opacity: 0.7; }
+
+.container {
+  width: 92%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* CARDS */
+.card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 22px;
+  margin: 22px 0;
+  border-radius: 14px;
+}
+
+.card h2 {
+  text-align: center;
+  color: #e7c78a;
+}
+
+/* PYRAMID */
+.pyramid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px 0;
+}
+
+.step {
+  height: 52px;
+  background: linear-gradient(145deg, #d8bc8f, #8a6a45);
+  border: 1px solid #3a2a1a;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.step:hover {
+  transform: scale(1.08);
+  filter: brightness(1.3);
+}
+
+.s1 { width: 400px; }
+.s2 { width: 340px; }
+.s3 { width: 290px; }
+.s4 { width: 240px; }
+.s5 { width: 190px; }
+.s6 { width: 140px; }
+
+/* POPUP */
+.popup {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.92);
+  border: 1px solid #e7c78a;
+  padding: 14px 18px;
+  border-radius: 12px;
+  display: none;
+  max-width: 80%;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🏺 STEP PYRAMID OF DJOSER</h1>
+<p class="subtitle">The First Monumental Stone Structure in Human History</p>
+</header>
+
+<div class="container">
+
+<!-- HISTORY (EXPANDED) -->
+<div class="card">
+<h2>📜 Historical Background</h2>
+<p>
+The Step Pyramid of Djoser was built around 2670 BCE in Saqqara during Egypt’s Third Dynasty, under Pharaoh Djoser.
+It represents the beginning of monumental stone architecture in human civilization.
+</p>
+<p>
+Before this innovation, royal tombs were built as flat mudbrick mastabas. The step pyramid introduced a revolutionary idea:
+stacking mastabas vertically to create height, stability, and symbolic connection to the heavens.
+</p>
+<p>
+This transformation marked a major shift in Egyptian culture — from simple burial structures to complex religious monuments
+designed to support the king’s journey into the afterlife.
+</p>
+</div>
+
+<!-- IMHOTEP -->
+<div class="card">
+<h2>🧠 Imhotep – The Architect</h2>
+<p>
+Imhotep was the vizier, engineer, and architect of Pharaoh Djoser. He is considered the first named engineer in history.
+His design for the pyramid changed architecture forever.
+</p>
+<p>
+Later in Egyptian history, Imhotep was worshipped as a god of wisdom, medicine, and writing due to his extraordinary knowledge.
+</p>
+</div>
+
+<!-- COMPLEX -->
+<div class="card">
+<h2>🏛️ The Pyramid Complex</h2>
+<p>
+The Step Pyramid was part of a massive funerary complex surrounded by limestone walls. It included temples, courtyards,
+and ceremonial spaces used for royal rituals.
+</p>
+<p>
+One of the most important features was the Heb-Sed Court, used to celebrate the king’s ritual renewal of power,
+symbolizing eternal kingship.
+</p>
+</div>
+
+<!-- UNDERGROUND -->
+<div class="card">
+<h2>🧱 Underground System</h2>
+<p>
+Beneath the pyramid lies an extensive underground network of tunnels stretching over 5 kilometers.
+These passages contain burial chambers, storage rooms, and decorated blue-tile corridors.
+</p>
+<p>
+This underground design was meant to protect the king’s body and ensure safe passage into the afterlife,
+reflecting advanced engineering for its time.
+</p>
+</div>
+
+<!-- IMPACT -->
+<div class="card">
+<h2>🌍 Legacy & Impact</h2>
+<p>
+The Step Pyramid influenced all later pyramids in Egypt, including those at Giza.
+It introduced the idea of large-scale stone construction and set the foundation for pyramid evolution.
+</p>
+<p>
+Without this structure, the iconic smooth-sided pyramids of later dynasties would not have been possible.
+</p>
+</div>
+
+<!-- INTERACTIVE PYRAMID -->
+<div class="card">
+<h2>🏗️ Interactive Pyramid</h2>
+<p>Click each layer to explore symbolic meaning.</p>
+
+<div class="pyramid">
+<div class="step s6" onclick="showInfo('Top chamber: connection to the afterlife and divine transformation')"></div>
+<div class="step s5" onclick="showInfo('Spiritual elevation toward the gods')"></div>
+<div class="step s4" onclick="showInfo('Expansion from mastaba to pyramid form')"></div>
+<div class="step s3" onclick="showInfo('Engineering breakthrough in stone architecture')"></div>
+<div class="step s2" onclick="showInfo('Designed under Imhotep’s innovation')"></div>
+<div class="step s1" onclick="showInfo('Original mastaba foundation of King Djoser')"></div>
+</div>
+
+</div>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup"></div>
+
+<script>
+function showInfo(text) {
+  const popup = document.getElementById("popup");
+  popup.innerText = text;
+  popup.style.display = "block";
+  setTimeout(() => popup.style.display = "none", 3500);
+}
+</script>
+
+</body>
+</html>
