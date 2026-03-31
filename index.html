@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,122 +6,142 @@
 <title>Step Pyramid of Djoser – Museum Exhibit</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  color: #f5e7d3;
+body{
+  margin:0;
+  font-family:Georgia, serif;
   background: radial-gradient(circle at top, #3a2b1d, #120e0a);
+  color:#f5e7d3;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url('https://www.transparenttextures.com/patterns/sand.png');
-  opacity: 0.08;
-  pointer-events: none;
+/* sand overlay */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url('https://www.transparenttextures.com/patterns/sand.png');
+  opacity:0.08;
+  pointer-events:none;
 }
 
-header {
-  text-align: center;
-  padding: 45px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+header{
+  text-align:center;
+  padding:60px 20px 30px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-h1 { font-size: 46px; margin-bottom: 5px; }
-.subtitle { opacity: 0.7; }
-
-.container {
-  width: 92%;
-  max-width: 1000px;
-  margin: auto;
+h1{
+  font-size:48px;
+  margin:0;
+  letter-spacing:1px;
 }
 
-/* CARDS */
-.card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  padding: 22px;
-  margin: 22px 0;
-  border-radius: 14px;
-  backdrop-filter: blur(6px);
-  transition: 0.3s;
+.subtitle{
+  opacity:0.7;
+  margin-top:10px;
 }
 
-.card:hover {
-  transform: scale(1.02);
-  border-color: #e7c78a;
+/* layout */
+.container{
+  width:92%;
+  max-width:1050px;
+  margin:auto;
+  padding:30px 0;
 }
 
-.card h2 {
-  text-align: center;
-  color: #e7c78a;
+/* cards */
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:24px;
+  margin:22px 0;
+  border-radius:14px;
+  transition:0.3s;
 }
 
-/* BUTTONS */
-.fact-btn {
-  display: inline-block;
-  margin: 6px;
-  padding: 10px 14px;
-  border: 1px solid #e7c78a;
-  background: transparent;
-  color: #f5e7d3;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+.card:hover{
+  transform:scale(1.015);
+  border-color:#e7c78a;
 }
 
-.fact-btn:hover {
-  background: #e7c78a;
-  color: #120e0a;
+.card h2{
+  text-align:center;
+  color:#e7c78a;
+  margin-bottom:14px;
 }
 
-/* MEASUREMENTS TABLE STYLE */
-ul {
-  line-height: 1.8;
+/* FACT BUTTONS */
+.fact-btn{
+  margin:6px;
+  padding:10px 14px;
+  border:1px solid #e7c78a;
+  background:transparent;
+  color:#f5e7d3;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.fact-btn:hover{
+  background:#e7c78a;
+  color:#120e0a;
+  transform:scale(1.05);
+}
+
+/* MEASUREMENTS (cleaner + museum style) */
+.measure-box{
+  border-left:4px solid #e7c78a;
+  padding-left:16px;
+  line-height:1.9;
+}
+
+.measure-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:10px;
 }
 
 /* PYRAMID (UNCHANGED) */
-.pyramid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 60px 0;
+.pyramid{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin:40px 0;
 }
 
-.step {
-  height: 52px;
-  background: linear-gradient(145deg, #d8bc8f, #8a6a45);
-  border: 1px solid #3a2a1a;
-  cursor: pointer;
-  transition: 0.3s;
+.step{
+  height:52px;
+  background:linear-gradient(145deg,#d8bc8f,#8a6a45);
+  border:1px solid #3a2a1a;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-.step:hover {
-  transform: scale(1.08);
-  filter: brightness(1.3);
+.step:hover{
+  transform:scale(1.08);
+  filter:brightness(1.3);
 }
 
-.s1 { width: 400px; }
-.s2 { width: 340px; }
-.s3 { width: 290px; }
-.s4 { width: 240px; }
-.s5 { width: 190px; }
-.s6 { width: 140px; }
+.s1{width:400px;}
+.s2{width:340px;}
+.s3{width:290px;}
+.s4{width:240px;}
+.s5{width:190px;}
+.s6{width:140px;}
 
 /* POPUP */
-.popup {
-  position: fixed;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.92);
-  border: 1px solid #e7c78a;
-  padding: 14px 18px;
-  border-radius: 12px;
-  display: none;
-  max-width: 80%;
-  text-align: center;
+.popup{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,0.92);
+  border:1px solid #e7c78a;
+  padding:14px 18px;
+  border-radius:12px;
+  display:none;
+  max-width:80%;
+  text-align:center;
 }
 </style>
 </head>
@@ -129,32 +149,21 @@ ul {
 <body>
 
 <header>
-<h1>🏺 STEP PYRAMID OF DJOSER</h1>
-<p class="subtitle">Ancient Egypt’s First Monumental Stone Structure</p>
+<h1>🏺 Step Pyramid of Djoser</h1>
+<p class="subtitle">Interactive Ancient Egyptian Museum – Saqqara</p>
 </header>
 
 <div class="container">
 
-<!-- FACTS (MORE INTERACTIVE) -->
-<div class="card">
-<h2>🔎 Quick Facts</h2>
-
-<button class="fact-btn" onclick="showInfo('Built around 2670 BCE in Saqqara.')">Date</button>
-<button class="fact-btn" onclick="showInfo('Designed by Imhotep, the first named architect.')">Architect</button>
-<button class="fact-btn" onclick="showInfo('First large stone building in history.')">Innovation</button>
-<button class="fact-btn" onclick="showInfo('Part of a huge funerary complex.')">Complex</button>
-</div>
-
-<!-- HISTORY (IMPROVED) -->
+<!-- HISTORY -->
 <div class="card">
 <h2>📜 History</h2>
 <p>
-The Step Pyramid of Djoser was built around 2670 BCE in Saqqara during the Third Dynasty of Ancient Egypt.
-It was created for Pharaoh Djoser and designed by Imhotep.
+Built around <b>2670 BCE</b>, the Step Pyramid of Djoser is the first major stone monument in history.
+It represents the transition from mudbrick tombs to monumental stone architecture.
 </p>
 <p>
-It began as a simple mastaba tomb, but was expanded into a six-step pyramid,
-marking the birth of monumental stone architecture in human history.
+It was designed by Imhotep for Pharaoh Djoser and symbolized eternal life and divine transformation.
 </p>
 </div>
 
@@ -162,80 +171,78 @@ marking the birth of monumental stone architecture in human history.
 <div class="card">
 <h2>🧠 Imhotep</h2>
 <p>
-Imhotep was a genius architect, priest, and advisor. He designed the pyramid and changed architecture forever.
-He was later worshipped as a god of wisdom and medicine.
+Imhotep was an architect, priest, and physician. He is considered the world’s first named engineer
+and was later worshipped as a god of wisdom and medicine.
 </p>
-</div>
-
-<!-- MEASUREMENTS (ADDED BACK) -->
-<div class="card">
-<h2>📐 Measurements</h2>
-<p><b>Scale:</b> 1 cm = 5 m</p>
-<ul>
-<li>24.3 m → 4.86 cm</li>
-<li>20.5 m → 4.1 cm</li>
-<li>17 m → 3.4 cm</li>
-<li>13.5 m → 2.7 cm</li>
-<li>10 m → 2 cm</li>
-<li>6.5 m → 1.3 cm</li>
-<li>3 m → 0.6 cm</li>
-<li><b>Main base:</b> 120 m × 120 m → 24 cm × 24 cm</li>
-</ul>
 </div>
 
 <!-- COMPLEX -->
 <div class="card">
 <h2>🏛️ Funerary Complex</h2>
 <p>
-The pyramid was part of a sacred complex with courtyards, temples, and ritual spaces used for ceremonies and the king’s afterlife journey.
+The pyramid was part of a massive ritual complex with temples, courtyards, and symbolic spaces
+used for royal ceremonies and the afterlife journey.
 </p>
 </div>
 
-<!-- UNDERGROUND -->
+<!-- MEASUREMENTS -->
 <div class="card">
-<h2>🧱 Underground Structure</h2>
-<p>
-Below the pyramid lies a 5km tunnel system with burial chambers and decorated corridors, built to protect the king forever.
-</p>
+<h2>📐 Measurements</h2>
+
+<div class="measure-box">
+<p><b>Scale:</b> 1 cm = 5 m</p>
+
+<div class="measure-grid">
+<div>Top layer: 3 m → 0.6 cm</div>
+<div>5th layer: 6.5 m → 1.3 cm</div>
+<div>4th layer: 10 m → 2 cm</div>
+<div>3rd layer: 13.5 m → 2.7 cm</div>
+<div>2nd layer: 17 m → 3.4 cm</div>
+<div>1st layer: 20.5 m → 4.1 cm</div>
+<div>Total height: 24.3 m → 4.86 cm</div>
+<div>Base: 120 m × 120 m → 24 cm × 24 cm</div>
 </div>
 
-<!-- LEGACY -->
+</div>
+</div>
+
+<!-- FACTS -->
 <div class="card">
-<h2>🌍 Legacy</h2>
-<p>
-This pyramid inspired all later pyramids in Egypt, including Giza. It was the first step toward perfect pyramid engineering.
-</p>
+<h2>🔎 Quick Facts</h2>
+<button class="fact-btn" onclick="showInfo('Built in Saqqara during the Third Dynasty')">Location</button>
+<button class="fact-btn" onclick="showInfo('First large stone structure in history')">Innovation</button>
+<button class="fact-btn" onclick="showInfo('Originally covered in white limestone')">Surface</button>
+<button class="fact-btn" onclick="showInfo('Part of a royal burial complex')">Purpose</button>
 </div>
 
-<!-- INTERACTIVE PYRAMID (UNCHANGED) -->
+<!-- PYRAMID -->
 <div class="card">
 <h2>🏗️ Interactive Pyramid</h2>
 <p>Click each layer to explore meaning.</p>
 
 <div class="pyramid">
-<div class="step s6" onclick="showInfo('Top: connection to afterlife')"></div>
+<div class="step s6" onclick="showInfo('Top: union with the gods')"></div>
 <div class="step s5" onclick="showInfo('Spiritual transformation')"></div>
-<div class="step s4" onclick="showInfo('Expansion phase')"></div>
+<div class="step s4" onclick="showInfo('Expansion of royal power')"></div>
 <div class="step s3" onclick="showInfo('Engineering breakthrough')"></div>
-<div class="step s2" onclick="showInfo('Imhotep’s design')"></div>
-<div class="step s1" onclick="showInfo('Original mastaba base')"></div>
+<div class="step s2" onclick="showInfo('Imhotep’s innovation')"></div>
+<div class="step s1" onclick="showInfo('Original mastaba foundation')"></div>
 </div>
+
 </div>
 
 </div>
 
-<!-- POPUP -->
 <div class="popup" id="popup"></div>
 
 <script>
-function showInfo(text) {
-  const popup = document.getElementById("popup");
-  popup.innerText = text;
-  popup.style.display = "block";
-  setTimeout(() => popup.style.display = "none", 3500);
+function showInfo(text){
+  const popup=document.getElementById("popup");
+  popup.innerText=text;
+  popup.style.display="block";
+  setTimeout(()=>popup.style.display="none",3000);
 }
 </script>
 
 </body>
 </html>
-
